@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Nouveau Cocktail
+{% endblock%}
+
+{% block main %}
+
+    {{ form_start(form) }}
+    {{ form_label(form.ingredients, 'Ingredients', { 'label_attr': {'class': 'form-cocktail-label'}})}}
+    {{ form_widget(form.ingredients, {'attr': {'class': 'form-cocktail-ingredients-widget form-control'}}) }}
+    {{ form_errors(form.ingredients) }}
+
+
+
+    {{ form_label(form.preparation, 'Preparation', { 'label_attr': {'class': 'form-cocktail-label'}})}}
+    {{ form_widget(form.preparation, {'attr': {'class': 'form-cocktail-preparation-widget form-control'}}) }}
+    {{ form_errors(form.preparation) }}
+
+
+    {{ form_label(form.titre, 'Titre', { 'label_attr': {'class': 'form-cocktail-label'}})}}
+    {{ form_widget(form.titre, {'attr': {'class': 'form-cocktail-titre-widget form-control'}}) }}
+    {{ form_errors(form.titre) }}
+
+    {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+
+{% endblock %}
