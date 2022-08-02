@@ -35,11 +35,6 @@ class Cocktails
     private $preparation;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
-
-    /**
      * @return mixed
      */
     public function getTitre()
@@ -91,18 +86,6 @@ class Cocktails
     public function setPreparation(string $preparation): self
     {
         $this->preparation = $preparation;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
 
         return $this;
     }

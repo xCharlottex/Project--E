@@ -32,12 +32,6 @@ class Mocktails
      */
     private $titre;
 
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
-
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="mocktails")
      */
@@ -90,19 +84,6 @@ class Mocktails
     public function setIngredients(string $ingredients): self
     {
         $this->ingredients = $ingredients;
-
-        return $this;
-    }
-
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
 
         return $this;
     }

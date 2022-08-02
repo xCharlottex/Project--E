@@ -1,0 +1,26 @@
+{
+  "name": "project_exam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "sass": "sass -w public/assets/styles/sass:public/assets/styles/css",
+    "watch": "sass -w public/assets/styles/sass:public/assets/styles/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xCharlottex/Project--E.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xCharlottex/Project--E/issues"
+  },
+  "homepage": "https://github.com/xCharlottex/Project--E#readme",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
