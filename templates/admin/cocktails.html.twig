@@ -3,10 +3,11 @@
 {% block main %}
     <section>
         {% for cocktail in cocktails %}
-            {% include 'admin/cocktail.html.twig' %}
+            <h1>{{ cocktail.titre }}</h1>
             <a href="{{ path('admin_insert_cocktail') }}">Ajouter un cocktail</a>
             <a href="{{ path('admin_show_cocktail',{'id':cocktail.id}) }}">Voir ce cocktail</a>
-            <a href="{{ path('admin_cocktails') }}">Voir tous les cocktails</a>
+            <a href="{{ path('admin_update_cocktail',{'id':cocktail.id}) }}">Modifier ce cocktail</a>
+            <a href="{{ path('admin_delete_cocktail',{'id':cocktail.id}) }}">Supprimer ce cocktail</a>
         {% endfor %}
     </section>
 {% endblock %}

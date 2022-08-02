@@ -2,9 +2,10 @@
 
 {% block main %}
     <section>
-
         {% for mocktail in mocktails %}
-            {% include 'admin/mocktail.html.twig' %}
+             <h1>{{ mocktail.titre }}</h1>
+            <a href="{{ path('admin_update_mocktail',{'id':mocktail.id}) }}">Modifier ce mocktail</a>
+            <a href="{{ path('admin_delete_mocktail',{'id':mocktail.id}) }}">Supprimer ce mocktail</a>
             <a href="{{ path('admin_insert_mocktail') }}">Ajouter un mocktail</a>
             <a href="{{ path('admin_show_mocktail',{'id':mocktail.id}) }}">Voir ce mocktail</a>
         {% endfor %}

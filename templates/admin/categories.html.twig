@@ -3,10 +3,13 @@
 {% block main %}
     <section>
         {% for category in categories %}
-            {% include 'admin/category.html.twig' %}
+            <h1>{{ category.titre}}</h1>
+            <img class="category-img" src="{{ asset('assets/uploads/images/'~ category.image ) }}" alt="{{ category.titre }}">
+
+            <a href="{{ path('admin_update_category',{'id':category.id}) }}">Modifier cette catégorie</a>
+            <a href="{{ path('admin_delete_category',{'id':category.id}) }}">Supprimer cette catégorie</a>
             <a href="{{ path('admin_insert_category') }}">Ajouter une catégorie</a>
             <a href="{{ path('admin_show_category', {'id':category.id}) }}">Voir cette catégorie</a>
-            <a href="{{ path('admin_categories') }}">Voir toutes les catégories</a>
         {% endfor %}
     </section>
 {% endblock %}

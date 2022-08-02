@@ -1,13 +1,14 @@
+{% extends 'base.html.twig' %}
 
 {% block main %}
-
     <section>
         <article class="cocktail">
-            <h1>{{ cocktail.titre}}</h1>
+            <h1>{{ cocktail.titre }}</h1>
             <p>{{ cocktail.ingredients }}</p>
             <p>{{ cocktail.preparation }}</p>
                 <a href="{{ path('admin_update_cocktail',{'id':cocktail.id}) }}">Modifier ce cocktail</a>
                 <a href="{{ path('admin_delete_cocktail',{'id':cocktail.id}) }}">Supprimer ce cocktail</a>
+                <a href="{{ path('admin_cocktails') }}">Voir tous les cocktails</a>
             </article>
     </section>
 {% endblock %}
