@@ -13,12 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminMockailController extends AbstractController {
 
     /**
-     * @Route("/admin/mocktail/{id}", name="admin_show_cocktail")
+     * @Route("/admin/mocktail/{id}", name="admin_show_mocktail")
      */
     public function showMocktail($id, MocktailsRepository $mocktailsRepository){
         $mocktail = $mocktailsRepository->find($id);
 
-        dump('ici un mocktail');die;
+        return $this->render('admin/mocktail.html.twig', [
+            'mocktail' => $mocktail
+            ]);
     }
 
     /**
@@ -28,7 +30,7 @@ class AdminMockailController extends AbstractController {
         $mocktails = $mocktailsRepository->findAll();
 
     return $this->render('admin/mocktails.html.twig', [
-        'mocktail' => $mocktails
+        'mocktails' => $mocktails
     ]);
     }
 

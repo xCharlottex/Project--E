@@ -19,7 +19,9 @@ class AdminCocktailController extends AbstractController {
     public function showCocktail($id, CocktailsRepository $cocktailsRepository){
         $cocktail = $cocktailsRepository->find($id);
 
-        dump('cocktail');die;
+        return $this->render('admin/cocktail.html.twig', [
+            'cocktail' => $cocktail
+        ]);
     }
 
     /**
@@ -28,7 +30,9 @@ class AdminCocktailController extends AbstractController {
     public function Cocktails(CocktailsRepository $cocktailsRepository){
         $cocktails = $cocktailsRepository->findAll();
 
-    return $this->render('admin/cocktails.html.twig') ;
+    return $this->render('admin/cocktails.html.twig', [
+        'cocktails'=> $cocktails
+    ]);
     }
 
     /**
@@ -59,8 +63,20 @@ class AdminCocktailController extends AbstractController {
 
         $cocktail = $cocktailsRepository->find($id);
 
+        // utiliser la ligne de commande php bin/console make:form
+        // symfony me créer une classe qui contient le plan du formulaire , c'est la classe CocktailType
+        // j'utilise la methode $this->>createForm pour creer un formulaire en utilisant le plan du formulaire
+        // CocktailType et une instance de cocktail
+
         $form = $this->createForm(CocktailsType::class, $cocktail);
+
+        // on donne a la variable qui contient le formulaire une instance de classe Request
+        // pour que le formulaire puisse recuperer toutes les donnees
+        // des inputs et faire les setters sur $cocktail
         $form-> handleRequest($request);
+
+        // si le formulaire a été posté et que les données sont valides (valeurs des inputs correspondent
+        // a ce qui est attendu en bd pour la table cocktail
         if ($form->isSubmitted() && $form->isValid()) {
 
             $entityManager->persist($cocktail);
@@ -70,7 +86,10 @@ class AdminCocktailController extends AbstractController {
         } else {
             $this->addFlash('error', 'Le cocktail n\'est pas modifié');
         }
-        return $this->render('admin/update_cocktail.html.twig');
+        return $this->render('admin/update_cocktail.html.twig', [
+            'form' => $form->createView(),
+            'cocktail' => $cocktail
+        ]);
     }
 
     /**

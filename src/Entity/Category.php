@@ -32,7 +32,24 @@ class Category
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @return mixed
+     */
+    public function getTexte()
+    {
+        return $this->texte;
+    }
+
+    /**
+     * @param mixed $texte
+     */
+    public function setTexte($texte): void
+    {
+        $this->texte = $texte;
+    }
+
+
+    /**
+     * @ORM\Column(type="text")
      */
     private $texte;
 
@@ -81,17 +98,7 @@ class Category
         return $this;
     }
 
-    public function getTexte(): ?string
-    {
-        return $this->texte;
-    }
 
-    public function setTexte(string $texte): self
-    {
-        $this->texte = $texte;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Cocktails>

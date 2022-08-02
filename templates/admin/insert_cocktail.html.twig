@@ -2,9 +2,12 @@
 
 {% block title %}
 Nouveau Cocktail
-{% endblock%}
+{% endblock %}
 
 {% block main %}
+
+    {# utiliser la fonction twig, lui passer la variable qui contient mon formulaire depuis le controleur
+    = generer tous les inputs + label de mon formulaire #}
 
     {{ form_start(form) }}
     {{ form_label(form.ingredients, 'Ingredients', { 'label_attr': {'class': 'form-cocktail-label'}})}}

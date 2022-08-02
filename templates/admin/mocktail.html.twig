@@ -1,0 +1,13 @@
+{% block main %}
+
+    <section>
+        <article class="mocktail">
+            <h1>{{ mocktail.titre }}</h1>
+            <p>{{ mocktail.ingredients }}</p>
+            <p>{{ mocktail.preparation }}</p>
+                <a href="{{ path('admin_mocktails',{'id':mocktail.id}) }}">Voir tous les mocktails</a>
+                <a href="{{ path('admin_update_mocktail',{'id':mocktail.id}) }}">Modifier ce mocktail</a>
+                <a href="{{ path('admin_delete_mocktail',{'id':mocktail.id}) }}">Supprimer ce mocktail</a>
+            </article>
+    </section>
+{% endblock %}
