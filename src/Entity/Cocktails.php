@@ -23,10 +23,7 @@ class Cocktails
 
 
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Ingredients;
+
 
 
     /**
@@ -59,24 +56,17 @@ class Cocktails
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="cocktails")
      */
     private $category;
-    
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Ingredients::class, inversedBy="cocktails")
+     */
+    private $ingredients;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIngredients(): ?string
-    {
-        return $this->Ingredients;
-    }
-
-    public function setIngredients(string $Ingredients): self
-    {
-        $this->Ingredients = $Ingredients;
-
-        return $this;
-    }
 
     public function getPreparation(): ?string
     {
@@ -101,4 +91,16 @@ class Cocktails
 
         return $this;
     }
+    public function getIngredients(): ?Ingredients
+    {
+        return $this->ingredients;
+    }
+
+    public function setIngredients(?Ingredients $ingredients): self
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
 }
