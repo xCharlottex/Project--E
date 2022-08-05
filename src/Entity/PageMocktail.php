@@ -25,6 +25,27 @@ class PageMocktail
     /**
      * @return mixed
      */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * @param mixed $ingredients
+     */
+    public function setIngredients($ingredients): void
+    {
+        $this->ingredients = $ingredients;
+    }
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $ingredients;
+
+    /**
+     * @return mixed
+     */
     public function getPreparation()
     {
         return $this->preparation;
@@ -44,6 +65,11 @@ class PageMocktail
     private $preparation;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre;
+
+    /**
      * @return mixed
      */
     public function getTitre()
@@ -60,30 +86,7 @@ class PageMocktail
     }
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\PageCategory", inversedBy="mocktails")
      */
-    private $titre;
-
-    /**
-     * @return mixed
-     */
-    public function getIngredients()
-    {
-        return $this->ingredients;
-    }
-
-    /**
-     * @param mixed $ingredients
-     */
-    public function setIngredients($ingredients): void
-    {
-        $this->ingredients = $ingredients;
-    }
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $ingredients;
-
-
+    private $category;
 }

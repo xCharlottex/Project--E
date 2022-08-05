@@ -12,6 +12,9 @@ class PageCategoryType extends AbstractType
     {
         $builder
             ->add('field_name')
+            ->add('titre')
+            ->add('image')
+            ->add('texte')
         ;
     }
 

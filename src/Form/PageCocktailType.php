@@ -12,6 +12,9 @@ class PageCocktailType extends AbstractType
     {
         $builder
             ->add('field_name')
+            ->add('ingredients')
+            ->add('preparation')
+            ->add('titre')
         ;
     }
 

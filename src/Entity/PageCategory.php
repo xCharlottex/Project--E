@@ -84,4 +84,19 @@ class PageCategory
      * @ORM\Column(type="text")
      */
     private $texte;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PageCocktail", mappedBy="category")
+     */
+    private $cocktails;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PageMocktail", mappedBy="category")
+     */
+    private $mocktails;
+
+
 }

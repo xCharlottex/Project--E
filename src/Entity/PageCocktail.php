@@ -86,4 +86,10 @@ class PageCocktail
     private $ingredients;
 
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\PageCategory", inversedBy="cocktails")
+     */
+    private $category;
+
+
 }
