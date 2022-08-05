@@ -6,7 +6,7 @@ use App\Repository\CocktailsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PageController extends AbstractController {
+class PageCocktailController extends AbstractController {
     /**
      * @Route("/home", name="home")
      */

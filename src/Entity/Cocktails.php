@@ -46,6 +46,7 @@ class Cocktails
      * @ORM\Column(type="text")
      */
     private $ingredients;
+
     /**
      * @return mixed
      */

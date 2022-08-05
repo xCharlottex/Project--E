@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <section>
+        <article class="page_category">
+            <img class="category-img" src="{{ asset('assets/uploads/images/'~ category.image ) }}" alt="{{ category.titre }}">
+            <h1>{{ category.titre}}</h1>
+            <p>{{ category.texte }}</p>
+        </article>
+
+    </section>
+{% endblock %}
