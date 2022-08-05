@@ -21,16 +21,31 @@ class Cocktails
     // recupere avec cocktails toutes les Categories qui lui sont liés (qui possede l'id de Category)
 
 
-
-
-
-
-
     /**
      * @ORM\Column(type="text")
      */
     private $preparation;
 
+    /**
+     * @return mixed
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * @param mixed $ingredients
+     */
+    public function setIngredients($ingredients): void
+    {
+        $this->ingredients = $ingredients;
+    }
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $ingredients;
     /**
      * @return mixed
      */
@@ -56,11 +71,6 @@ class Cocktails
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="cocktails")
      */
     private $category;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Ingredients::class, inversedBy="cocktails")
-     */
-    private $ingredients;
 
     public function getId(): ?int
     {
@@ -91,16 +101,6 @@ class Cocktails
 
         return $this;
     }
-    public function getIngredients(): ?Ingredients
-    {
-        return $this->ingredients;
-    }
 
-    public function setIngredients(?Ingredients $ingredients): self
-    {
-        $this->ingredients = $ingredients;
-
-        return $this;
-    }
 
 }

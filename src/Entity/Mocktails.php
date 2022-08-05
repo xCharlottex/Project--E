@@ -28,16 +28,30 @@ class Mocktails
     private $titre;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="mocktails")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="mocktails")
      */
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Ingredients::class, inversedBy="mocktails")
+     * @return mixed
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * @param mixed $ingredients
+     */
+    public function setIngredients($ingredients): void
+    {
+        $this->ingredients = $ingredients;
+    }
+
+    /**
+     * @ORM\Column(type="text")
      */
     private $ingredients;
-
-
 
     /**
      * @return mixed
@@ -90,18 +104,6 @@ class Mocktails
         return $this;
     }
 
-
-    public function getIngredients(): ?Ingredients
-    {
-        return $this->ingredients;
-    }
-
-    public function setCIngredients(?Ingredients $ingredients): self
-    {
-        $this->ingredients = $ingredients;
-
-        return $this;
-    }
 
    
 }
