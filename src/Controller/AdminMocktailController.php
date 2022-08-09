@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminMockailController extends AbstractController {
+class AdminMocktailController extends AbstractController {
 
     /**
      * @Route("/admin/mocktail/{id}", name="admin_show_mocktail")

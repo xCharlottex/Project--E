@@ -32,7 +32,7 @@ class PageCocktailController extends AbstractController {
     public function Cocktails(CocktailsRepository $cocktailsRepository){
         $cocktails = $cocktailsRepository->findAll();
 
-        return $this->render('front/cocktails.html.twig', [
+        return $this->render('', [
             'cocktails'=> $cocktails
         ]);
     }

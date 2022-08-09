@@ -3,4 +3,48 @@
   width: 100px;
 }
 
+.image_logo {
+  height: 50px;
+  width: 50px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
+
+.jsf {
+  color: white;
+}
+
+body {
+  background-image: url("../../uploads/images/imgA.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
 /*# sourceMappingURL=styles.css.map */

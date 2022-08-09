@@ -2,8 +2,8 @@
 
 {% block main %}
         <section>
-
-                <h1>{{ cocktail.titre }}</h1>
-
+                {% for cocktail in cocktails %}
+                        <h1>{{ cocktail.titre }}</h1>
+                {% endfor %}
         </section>
 {% endblock %}

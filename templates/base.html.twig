@@ -8,6 +8,30 @@
 
     <link rel="stylesheet" href="{{ asset('assets/styles/css/styles.css') }}">
 </head>
+<body>
+<header>
+    <nav>
+        <div class="nav">
+            <img class="image_logo" src="{{ asset('assets/uploads/images/logo.jpg') }}" alt="image_logo">
+            <a href="#">Qui sommes nous</a>
+            <a href="#">Inscription</a>
+            <a href="{{ path('app_login') }}">Connexion</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+
 
 {% block main %}
-{% endblock %}
+    {% endblock %}
+
+
+
+</main>
+<footer class="footer">
+<p class="jsf">je suis le footer</p>
+</footer>
+</body>
+</html>
