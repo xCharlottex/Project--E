@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+    {% block main %}
+
+        {{ form_start(form) }}
+
+
+            {{ form_label(form.name, 'Prenom', {'label_attr': {'class': 'form-name-titre-label'}}) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-name-titre-widget'}}) }}
+            {{ form_errors(form.name) }}
+
+            {{ form_label(form.lastname, 'Nom', {'label_attr': {'class': 'form-lastname-titre-label'}}) }}
+            {{ form_widget(form.lastname, {'attr': {'class': 'form-lastname-titre-widget'}}) }}
+            {{ form_errors(form.lastname) }}
+
+            {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-email-titre-label'}}) }}
+            {{ form_widget(form.email, {'attr': {'class': 'form-email-titre-widget'}}) }}
+            {{ form_errors(form.email) }}
+
+            {{ form_label(form.password, 'Mot de passe', {'label_attr': {'class': 'form-password-titre-label'}}) }}
+            {{ form_widget(form.password, {'attr': {'class': 'password-titre-widget'}}) }}
+            {{ form_errors(form.password) }}
+
+            {{ form_widget(form.envoyer) }}
+
+            {{ form_end(form) }}
+
+    {% endblock %}

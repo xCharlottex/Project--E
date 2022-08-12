@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\FrontController;
 
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,6 +28,13 @@ class PageCategoryController extends AbstractController {
         return $this->render('front/category.html.twig', [
             'category' => $category
         ]);
+    }
+
+    /**
+     * @Route("/about", name="about")
+     */
+    public function about(){
+        return $this->render('front/about.html.twig');
     }
 
 }
