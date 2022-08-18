@@ -3,6 +3,8 @@
 namespace App\Controller\FrontController;
 
 use App\Repository\CategoryRepository;
+use App\Repository\CocktailsRepository;
+use App\Repository\MocktailsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,11 +24,27 @@ class PageCategoryController extends AbstractController {
     /**
      * @Route("/category/{id}", name="show_category")
      */
-    public function showCategory($id, CategoryRepository $categoryRepository){
-        $category = $categoryRepository->find($id);
+    public function showCategory($id, CocktailsRepository  $cocktailRepository){
+
+        $cocktail = $cocktailRepository->find($id);
 
         return $this->render('front/category.html.twig', [
-            'category' => $category
+
+            'cocktail' => $cocktail
+        ]);
+    }
+
+
+    /**
+     * @Route("/category/{id}", name="show_category_mocktail")
+     */
+    public function showCategoryMocktail($id, MocktailsRepository $mocktailRepository){
+
+        $mocktail = $mocktailRepository->find($id);
+
+        return $this->render('front/category.html.twig', [
+
+            'cocktail' => $mocktail
         ]);
     }
 

@@ -48,7 +48,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: plum;
+  background-image: url("../../uploads/images/fondpotentiel.jpg");
   background-size: cover;
   color: white;
 }
@@ -97,6 +97,28 @@ body {
 
 .about-pages div:nth-child(3) {
   background-color: cornflowerblue;
+}
+
+.about_image {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../assets/uploads/images/photo cocktails nuit .jpg");
+  background-size: cover;
+}
+
+.about_image p {
+  color: white;
+  text-align: center;
+}
+
+main {
+  height: 100vh;
+}
+
+.formulaire_inscription {
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

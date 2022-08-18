@@ -2,11 +2,11 @@
 
 {% block main %}
     <section>
-        <article class="page_category">
-            <img class="category-img" src="{{ asset('assets/uploads/images/'~ category.image ) }}" alt="{{ category.titre }}">
-            <h1>{{ category.titre}}</h1>
-            <p>{{ category.texte }}</p>
+        <article class="page_cocktail">
+            <img class="cocktail-img" alt="{{ cocktail.titre }}">
+            <h1>{{ cocktail.titre}}</h1>
+            <p>{{ cocktail.ingredients }}</p>
+            <p>{{ cocktail.preparation }}</p>
         </article>
-
     </section>
 {% endblock %}
