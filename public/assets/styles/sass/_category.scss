@@ -14,24 +14,34 @@
 
     background-size: cover;
     min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
 
-    .drinks.CocktailVodkaConcombre {
+    .drinks {
+      width:100%;
+      display: flex;
+      margin: 60px;
       p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+        color: white;
+      }
+
+      &.pair{
+        .wrapperText{
+          margin:auto;
+        }
+      }
+      .wrapperText{
+        width:40%;
       }
     }
 
-    .drinks.BloodyMary {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+    .drinks p, .drinkTitre {
+      color: white;
+    }
 
-      }
+    .ingredients::after {
+      border-top: solid 1px white;
     }
 
   }
@@ -41,22 +51,23 @@
 
     background-size: cover;
     min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    //flex-wrap: wrap;
+    //gap:8rem;
 
-    .drinks.WhiteRussian {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+    .drinks {
+      width:100%;
+      display: flex;
+      margin: 60px;
+
+      &.pair{
+        .wrapperText{
+          margin:auto;
+        }
       }
-    }
-
-    .drinks.CocktailAurore {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+      .wrapperText{
+        width:40%;
       }
     }
 
@@ -67,22 +78,23 @@
 
     background-size: cover;
     min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    //flex-wrap: wrap;
+    //gap:8rem;
 
-    .drinks.GrandCanyon {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+    .drinks {
+      width:100%;
+      display: flex;
+      margin: 60px;
+
+      &.pair{
+        .wrapperText{
+          margin:auto;
+        }
       }
-    }
-
-    .drinks.Ambassador {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+      .wrapperText{
+        width:40%;
       }
     }
 
@@ -93,23 +105,34 @@
 
     background-size: cover;
     min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
 
-    .drinks.Lemocktailàlabananeetàlacannelle {
+    .drinks {
+      width:100%;
+      display: flex;
+      margin: 60px;
       p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+        color: black;
+      }
+
+      &.pair{
+        .wrapperText{
+          margin:auto;
+        }
+      }
+      .wrapperText{
+        width:40%;
       }
     }
 
-    .drinks.Lemocktailbanane {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
-      }
+    .drinks p, .drinkTitre {
+      color: black;
+    }
+
+    .ingredients::after {
+      border-top: solid 1px black;
     }
   }
 
@@ -118,25 +141,34 @@
 
     background-size: cover;
     min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
 
-    .drinks.Lemocktailauperriercitron {
+    .drinks {
+      width:100%;
+      display: flex;
+      margin: 60px;
       p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
         color: black;
+      }
+
+      &.pair{
+        .wrapperText{
+          margin:auto;
+        }
+      }
+      .wrapperText{
+        width:40%;
       }
     }
 
-    .drinks.Lemocktailcitronpomme {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
-        color: black;
-      }
+    .drinks p, .drinkTitre {
+      color: black;
+    }
+
+    .ingredients::after {
+      border-top: solid 1px black;
     }
   }
 
@@ -145,28 +177,58 @@
 
     background-size: cover;
     min-height: 100vh;
+    display: flex;
+    //flex-wrap: wrap;
+    //gap: 20px;
 
-    .drinks.Levirginmojitofraise {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+    .drinks {
+      width: 100%;
+      display: flex;
+      margin: 60px;
+
+
+      &.pair {
+        .wrapperText {
+          margin: auto;
+        }
       }
-    }
 
-    .drinks.Lemocktailfraise {
-      p {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 30%;
+      .wrapperText {
+        width: 50%;
       }
     }
   }
 
   .drinks p {
     color: white;
+  }
+
+  .i, .p, .drinkTitre {
+    font-weight: bold;
+    color:white;
+    margin:15px 0;
+  }
+
+  .p{
+    margin-top:30px;
+  }
+
+  .drinkTitre{
+    margin-bottom:30px;
+    font-size:2rem;
+  }
+
+  .ingredients{
+    position: relative;
+    &::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:-15px;
+      transform:translateX(-50%);
+      width:30%;
+      border-top:solid 1px white;
+    }
   }
 
 

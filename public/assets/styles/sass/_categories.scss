@@ -1,10 +1,15 @@
-.categories {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  .drinks {
-    text-decoration: none;
-  }
+* {
+  background-color: #141414;
+  text-decoration: none;
 }
 
+.categories {
+  display: flex;
+  justify-content: space-between;
 
+}
+
+.nameCategory {
+  color: white;
+  font-size: ;
+}

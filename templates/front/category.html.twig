@@ -3,12 +3,14 @@
 {% block main %}
     <section class="category {{ category|replace({' ': '', '&': ''}) }}">
         {% for drink in drinks %}
-        <article class="drinks {{ drink.titre|replace({' ': '', '&': ''}) }}">
-            <p><u>{{ drink.titre}}</u></p>
-            <p>Ingredients :</p>
-            <p class="ingredients">{{ drink.ingredients }}</p>
-            <p>Préparation :</p>
-            <p class="preparation">{{ drink.preparation }}</p>
+        <article class="drinks {{ drink.titre|replace({' ': '', '&': ''}) }} {% if loop.index % 2 == 0  %} pair {% endif %}">
+           <div class="wrapperText">
+               <h2 class="drinkTitre">{{ drink.titre}}</h2>
+               <p class="i">Ingredients :</p>
+               <p class="ingredients">{{ drink.ingredients }}</p>
+               <p class="p">Préparation :</p>
+               <p class="preparation">{{ drink.preparation }}</p>
+           </div>
         </article>
         {% endfor %}
     </section>
