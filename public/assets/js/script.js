@@ -15,7 +15,7 @@ function splitScroll(){
     })
         .setPin('.about-accueil')
     // ajouter des indicateurs qui nous sont visuel puis le brancher a ce controlleur
-        .addIndicators()
+     //s   .addIndicators()
     // ajouter au controleur puis enrengistrer
         .addTo(controller);
 }

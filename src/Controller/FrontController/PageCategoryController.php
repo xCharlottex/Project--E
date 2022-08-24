@@ -24,29 +24,17 @@ class PageCategoryController extends AbstractController {
     /**
      * @Route("/category/{id}", name="show_category")
      */
-    public function showCategory($id, CocktailsRepository  $cocktailRepository){
-
-        $cocktail = $cocktailRepository->find($id);
+    public function showCategory($id, CategoryRepository  $categoryRepository, CocktailsRepository  $cocktailRepository, MocktailsRepository $mocktailsRepository){
+        $category = $categoryRepository->find($id);
+        $drinks = $cocktailRepository->findBy(['category' => $category]);
+        $drinks = $drinks + $mocktailsRepository->findBy(['category' => $category]);
 
         return $this->render('front/category.html.twig', [
-
-            'cocktail' => $cocktail
+            'drinks' => $drinks,
+            'category' => $category->getTitre()
         ]);
     }
 
-
-    /**
-     * @Route("/category/{id}", name="show_category_mocktail")
-     */
-    public function showCategoryMocktail($id, MocktailsRepository $mocktailRepository){
-
-        $mocktail = $mocktailRepository->find($id);
-
-        return $this->render('front/category.html.twig', [
-
-            'cocktail' => $mocktail
-        ]);
-    }
 
     /**
      * @Route("/about", name="about")

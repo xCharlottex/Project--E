@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <section>
-        <article class="page_cocktail">
-            <img class="cocktail-img" alt="{{ cocktail.titre }}">
-            <h1>{{ cocktail.titre}}</h1>
-            <p>{{ cocktail.ingredients }}</p>
-            <p>{{ cocktail.preparation }}</p>
+    <section class="category {{ category|replace({' ': '', '&': ''}) }}">
+        {% for drink in drinks %}
+        <article class="drinks {{ drink.titre|replace({' ': '', '&': ''}) }}">
+            <p><u>{{ drink.titre}}</u></p>
+            <p>Ingredients :</p>
+            <p class="ingredients">{{ drink.ingredients }}</p>
+            <p>Préparation :</p>
+            <p class="preparation">{{ drink.preparation }}</p>
         </article>
+        {% endfor %}
     </section>
 {% endblock %}
+
+{# id="show-category" dans la section #}

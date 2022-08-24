@@ -1,0 +1,172 @@
+//#show-category {
+//  .category {
+//    background-attachment: fixed;
+//    background-repeat: no-repeat;
+//    background-position: center top;
+//    background-size: cover;
+//    min-height: 100vh;
+    // mettre & devant toutes les classes
+//  }
+
+
+  .Vodka {
+    background: url("../../uploads/images/cocktail_vodka.jpg") no-repeat center top fixed;
+
+    background-size: cover;
+    min-height: 100vh;
+
+    .drinks.CocktailVodkaConcombre {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+
+    .drinks.BloodyMary {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+
+      }
+    }
+
+  }
+
+  .Liqueurdecafe {
+    background: url("../../uploads/images/cocktail.cafe.jpg") no-repeat center top fixed;
+
+    background-size: cover;
+    min-height: 100vh;
+
+    .drinks.WhiteRussian {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+
+    .drinks.CocktailAurore {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+
+  }
+
+  .Tequila {
+    background: url("../../uploads/images/cocktail_tequila.jpg") no-repeat center top fixed;
+
+    background-size: cover;
+    min-height: 100vh;
+
+    .drinks.GrandCanyon {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+
+    .drinks.Ambassador {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+
+  }
+
+  .Banane {
+    background: url("../../uploads/images/mock.banane.jpg") no-repeat center top fixed;
+
+    background-size: cover;
+    min-height: 100vh;
+
+    .drinks.Lemocktailàlabananeetàlacannelle {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+
+    .drinks.Lemocktailbanane {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+  }
+
+  .Citron {
+    background: url("../../uploads/images/mocktail_citron.jpg") no-repeat center top fixed;
+
+    background-size: cover;
+    min-height: 100vh;
+
+    .drinks.Lemocktailauperriercitron {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+        color: black;
+      }
+    }
+
+    .drinks.Lemocktailcitronpomme {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+        color: black;
+      }
+    }
+  }
+
+  .Fraise {
+    background: url("../../uploads/images/mock.fraise.jpg") no-repeat center top fixed;
+
+    background-size: cover;
+    min-height: 100vh;
+
+    .drinks.Levirginmojitofraise {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+
+    .drinks.Lemocktailfraise {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+      }
+    }
+  }
+
+  .drinks p {
+    color: white;
+  }
+
+

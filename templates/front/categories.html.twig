@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <section>
+    <section class="categories">
         {% for category in categories %}
-            <h1><a href="{{ path('show_category', {'id':category.id}) }}"><p>{{ category.titre }}</p></a></h1>
-
-           <img class="category-img" src="{{ asset('assets/uploads/images/'~ category.image ) }}" alt="{{ category.titre }}">
+        <div class="category-wrapper">
+            <img class="category-img" src="{{ asset('assets/uploads/images/'~ category.image ) }}" alt="{{ category.titre }}">
+            <h2><a href="{{ path('show_category', {'id':category.id}) }}"><p>{{ category.titre }}</p></a></h2>
+        </div>
         {% endfor %}
     </section>
 {% endblock %}
