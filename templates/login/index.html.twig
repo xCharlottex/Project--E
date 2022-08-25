@@ -4,20 +4,24 @@
         {% if error %}
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
-
-
-        <form action="{{ path('app_login') }}" method="post">
-
-            <label for="username" class="email">Email:</label>
-            <input type="text" id="username" name="_username"/>
-            <br>
-            <label for="password">Mot de passe:</label>
-            <input type="password" id="password" name="_password"/>
-
-            {# If you want to control the URL the user is redirected to on success
-            <input type="hidden" name="_target_path" value="/account"/> #}
-
-            <button type="submit">Connexion</button>
-        </form>
-
+            <div class="formulaire_connexion">
+                <div class="formWrapper">
+                    <h1 class="connexionTitle">Connexion</h1>
+                        <form action="{{ path('app_login') }}" method="post">
+                            <div class="inputWrapper">
+                                <input type="text" id="username" name="_username" placeholder=" "/>
+                                <label for="username" class="email">Email</label>
+                            </div>
+                        <div class="inputWrapper">
+                                <input type="password" id="password" name="_password" placeholder=" "/>
+                                <label for="password" class="password">Mot de passe</label>
+                        </div>
+                        {# If you want to control the URL the user is redirected to on success
+                        <input type="hidden" name="_target_path" value="/account"/> #}
+                        <div class="inputWrapper">
+                        <button type="submit">Connexion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
     {% endblock %}

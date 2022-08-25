@@ -31,6 +31,19 @@
     height:50vh;
     overflow: hidden;
     transition: all .5s linear;
+    p{
+      color:transparent;
+      font-size:0.9rem;
+      font-weight: lighter;
+      position:absolute;
+      bottom:0;
+      left:0;
+      z-index:400;
+      transition: color 1s ease;
+      transition-delay: 0s;
+      padding: 10px;
+
+    }
     &::after{
       content:'';
       position:absolute;
@@ -43,10 +56,19 @@
       z-index:200;
     }
     &:hover{
-      -webkit-box-shadow: 4px 4px 4px 1px rgba(255,255,255,0.3);
-      box-shadow: 4px 4px 4px 1px rgba(255,255,255,0.3);
+
+      &::after{
+        height: 80%;
+      }
       img{
         transform: scale(1.5);
+      }
+      p{
+        color:white;
+      }
+      h2{
+        bottom:40%;
+        transition-delay: 0s;
       }
     }
     img{
@@ -63,6 +85,8 @@
       transform: translateX(-50%);
       z-index:300;
       text-align: center;
+      transition: all .5s ease;
+      transition-delay: .7s;
       a{
         text-decoration: none;
           span{

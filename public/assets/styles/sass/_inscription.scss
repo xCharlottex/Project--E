@@ -1,3 +1,95 @@
 .formulaire_inscription {
-  align-items: center;
+  height: 100vh;
+  background-image: url("../../uploads/images/expresso.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content:flex-end;
+  background-position: center;
+  .formWrapper{
+    background-color: rgba(20, 20, 20, 0.8);
+    width:40%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .inscriptionTitle {
+      text-align: center;
+      color: white;
+      font-size:3rem;
+      font-weight: lighter;
+      position:relative;
+      width:100%;
+      &::after{
+        content:'';
+        position: absolute;
+        bottom:-10px;
+        left:50%;
+        width:10%;
+        border-top:1px solid white;
+        transform: translateX(-50%);
+      }
+    }
+    form{
+      padding:70px;
+      text-decoration: none;
+      .inputWrapper{
+        margin:40px 0;
+        position: relative;
+
+        label{
+          position: absolute;
+          left:10px;
+          font-weight: lighter;
+          font-size:24px;
+          top:10px;
+          transition: top .5s linear;
+        }
+      }
+        input {
+          padding: 4px;
+          background-color: transparent;
+          border: none;
+          border-bottom: solid 1px white;
+          width:100%;
+          display:block;
+          color:white;
+          font-size:24px;
+          font-weight:lighter;
+          //outline: none;
+          &:not(:placeholder-shown){
+            &+label{
+              top:-30px;
+            }
+          }
+          &:focus{
+            &+label{
+              top:-30px;
+            }
+          }
+        }
+      .form-password-titre-label, .form-email-titre-label, .form-lastname-titre-label, .form-name-titre-label {
+        color: white;
+      }
+
+      button {
+        border: white solid 1px;
+        background-color: transparent;
+        color: white;
+        padding: 10px 20px;
+        font-size: 24px;
+        font-weight: lighter;
+        cursor:pointer;
+        transition:all .4s linear ;
+        &:hover{
+          background-color: rgba(255,255,255,.8);
+          color:rgba(20, 20, 20);
+        }
+      }
+    }
 }
+
+
+}
+
+

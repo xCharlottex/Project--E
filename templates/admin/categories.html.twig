@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <section>
+    <section class="categoriesAdmin">
+        <h1 class="categoryAdmintitle">Catégories</h1>
         {% for category in categories %}
-            <h1>{{ category.titre}}</h1>
+            <div class="categoryAdmin-wrapper">
             <img class="category-img" src="{{ asset('assets/uploads/images/'~ category.image ) }}" alt="{{ category.titre }}">
-
-            <a href="{{ path('admin_update_category',{'id':category.id}) }}">Modifier cette catégorie</a>
-            <a href="{{ path('admin_delete_category',{'id':category.id}) }}">Supprimer cette catégorie</a>
-            <a href="{{ path('admin_insert_category') }}">Ajouter une catégorie</a>
-            <a href="{{ path('admin_show_category', {'id':category.id}) }}">Voir cette catégorie</a>
+            <a class="update" href="{{ path('admin_update_category',{'id':category.id}) }}">Modifier cette catégorie</a>
+            <a class="delete" href="{{ path('admin_delete_category',{'id':category.id}) }}">Supprimer cette catégorie</a>
+            <a class="insert" href="{{ path('admin_insert_category') }}">Ajouter une catégorie</a>
+            <a class="show" href="{{ path('admin_show_category', {'id':category.id}) }}">Voir cette catégorie</a>
+            </div>
         {% endfor %}
     </section>
 {% endblock %}

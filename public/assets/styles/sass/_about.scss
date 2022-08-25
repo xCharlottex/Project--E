@@ -6,14 +6,17 @@
   align-items: center;
   background-image: url("../../../assets/uploads/images/photo cocktails nuit .jpg");
   background-size: cover;
+
 }
 
 .about_image p {
   color: white;
   text-align: center;
   width: 50%;
-  background-color: black; opacity: 0.70;
   border-radius: 10px;
+  font-weight: lighter;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,0.5508578431372548) 0%, rgba(0,0,0,0.8477766106442577) 100%);
 
 }
 

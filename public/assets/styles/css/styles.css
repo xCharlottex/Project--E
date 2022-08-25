@@ -4,8 +4,8 @@
 }
 
 .image_logo {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 
 * {
@@ -18,7 +18,7 @@
   background-color: black;
   display: flex;
   justify-content: space-around;
-  height: 50px;
+  height: 60px;
   align-items: center;
 }
 .nav a, .nav span {
@@ -115,9 +115,10 @@
   color: white;
   text-align: center;
   width: 50%;
-  background-color: black;
-  opacity: 0.7;
   border-radius: 10px;
+  font-weight: lighter;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5508578431) 0%, rgba(0, 0, 0, 0.8477766106) 100%);
 }
 
 main {
@@ -125,7 +126,88 @@ main {
 }
 
 .formulaire_inscription {
-  align-items: center;
+  height: 100vh;
+  background-image: url("../../uploads/images/expresso.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  background-position: center;
+}
+.formulaire_inscription .formWrapper {
+  background-color: rgba(20, 20, 20, 0.8);
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.formulaire_inscription .formWrapper .inscriptionTitle {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.formulaire_inscription .formWrapper .inscriptionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+.formulaire_inscription .formWrapper form {
+  padding: 70px;
+  text-decoration: none;
+}
+.formulaire_inscription .formWrapper form .inputWrapper {
+  margin: 40px 0;
+  position: relative;
+}
+.formulaire_inscription .formWrapper form .inputWrapper label {
+  position: absolute;
+  left: 10px;
+  font-weight: lighter;
+  font-size: 24px;
+  top: 10px;
+  transition: top 0.5s linear;
+}
+.formulaire_inscription .formWrapper form input {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px white;
+  width: 100%;
+  display: block;
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+}
+.formulaire_inscription .formWrapper form input:not(:placeholder-shown) + label {
+  top: -30px;
+}
+.formulaire_inscription .formWrapper form input:focus + label {
+  top: -30px;
+}
+.formulaire_inscription .formWrapper form .form-password-titre-label, .formulaire_inscription .formWrapper form .form-email-titre-label, .formulaire_inscription .formWrapper form .form-lastname-titre-label, .formulaire_inscription .formWrapper form .form-name-titre-label {
+  color: white;
+}
+.formulaire_inscription .formWrapper form button {
+  border: white solid 1px;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+.formulaire_inscription .formWrapper form button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(20, 20, 20);
 }
 
 .categoryTitle {
@@ -163,6 +245,18 @@ main {
   overflow: hidden;
   transition: all 0.5s linear;
 }
+.categories .category-wrapper p {
+  color: transparent;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 400;
+  transition: color 1s ease;
+  transition-delay: 0s;
+  padding: 10px;
+}
 .categories .category-wrapper::after {
   content: "";
   position: absolute;
@@ -174,12 +268,18 @@ main {
   left: 0;
   z-index: 200;
 }
-.categories .category-wrapper:hover {
-  -webkit-box-shadow: 4px 4px 4px 1px rgba(255, 255, 255, 0.3);
-  box-shadow: 4px 4px 4px 1px rgba(255, 255, 255, 0.3);
+.categories .category-wrapper:hover::after {
+  height: 80%;
 }
 .categories .category-wrapper:hover img {
   transform: scale(1.5);
+}
+.categories .category-wrapper:hover p {
+  color: white;
+}
+.categories .category-wrapper:hover h2 {
+  bottom: 40%;
+  transition-delay: 0s;
 }
 .categories .category-wrapper img {
   width: 100%;
@@ -195,6 +295,8 @@ main {
   transform: translateX(-50%);
   z-index: 300;
   text-align: center;
+  transition: all 0.5s ease;
+  transition-delay: 0.7s;
 }
 .categories .category-wrapper h2 a {
   text-decoration: none;
@@ -382,6 +484,188 @@ main {
   transform: translateX(-50%);
   width: 30%;
   border-top: solid 1px white;
+}
+
+.formulaire_connexion {
+  height: 100vh;
+  background-image: url("../../uploads/images/expresso.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  background-position: center;
+}
+.formulaire_connexion .formWrapper {
+  background-color: rgba(20, 20, 20, 0.8);
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.formulaire_connexion .formWrapper .connexionTitle {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.formulaire_connexion .formWrapper .connexionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+.formulaire_connexion .formWrapper form {
+  padding: 70px;
+  text-decoration: none;
+}
+.formulaire_connexion .formWrapper form .inputWrapper {
+  margin: 40px 0;
+  position: relative;
+}
+.formulaire_connexion .formWrapper form .inputWrapper label {
+  position: absolute;
+  left: 10px;
+  font-weight: lighter;
+  font-size: 24px;
+  top: 10px;
+  transition: top 0.5s linear;
+}
+.formulaire_connexion .formWrapper form input {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px white;
+  width: 100%;
+  display: block;
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+}
+.formulaire_connexion .formWrapper form input:not(:placeholder-shown) + label {
+  top: -30px;
+}
+.formulaire_connexion .formWrapper form input:focus + label {
+  top: -30px;
+}
+.formulaire_connexion .formWrapper form .email, .formulaire_connexion .formWrapper form .password {
+  color: white;
+}
+.formulaire_connexion .formWrapper form button {
+  border: white solid 1px;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+.formulaire_connexion .formWrapper form button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(20, 20, 20);
+}
+
+.categoryAdmintitle {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.categoryAdmintitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+
+.categoriesAdmin {
+  padding: 40px 0;
+  background-color: #141414;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+.categoriesAdmin .categoryAdmin-wrapper {
+  position: relative;
+  width: 30%;
+  background-color: white;
+  height: 50vh;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+.categoriesAdmin .categoryAdmin-wrapper a .show, .categoriesAdmin .categoryAdmin-wrapper .update, .categoriesAdmin .categoryAdmin-wrapper .delete, .categoriesAdmin .categoryAdmin-wrapper .insert {
+  color: transparent;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 400;
+  transition: color 1s ease;
+  transition-delay: 0s;
+  padding: 10px;
+}
+.categoriesAdmin .categoryAdmin-wrapper::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%, rgba(0, 0, 0, 0.9) 100%);
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover::after {
+  height: 80%;
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover img {
+  transform: scale(1.5);
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover a {
+  color: white;
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover h2 {
+  bottom: 40%;
+  transition-delay: 0s;
+}
+.categoriesAdmin .categoryAdmin-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s linear;
+}
+.categoriesAdmin .categoryAdmin-wrapper h2 {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  text-align: center;
+  transition: all 0.5s ease;
+  transition-delay: 0.7s;
+}
+.categoriesAdmin .categoryAdmin-wrapper h2 a {
+  text-decoration: none;
+}
+.categoriesAdmin .categoryAdmin-wrapper h2 a span {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: lighter;
 }
 
 /*# sourceMappingURL=styles.css.map */
