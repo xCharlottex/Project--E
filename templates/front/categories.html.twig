@@ -2,13 +2,26 @@
 
 {% block main %}
 
+    {% if 'ROLE_ADMIN' in app.user.roles %}
+        <a class="insert" href="{{ path('admin_insert_category') }}">Ajouter une catégorie</a>
+    {% endif %}
     <section class="categories">
         <h1 class="categoryTitle">Catégories</h1>
+
         {% for category in categories %}
         <div class="category-wrapper">
-            <img class="category-img" src="{{ asset('assets/uploads/images/'~ category.image ) }}" alt="{{ category.titre }}">
-            <h2><a href="{{ path('show_category', {'id':category.id}) }}"><span class="nameCategory">{{ category.titre }}</span></a></h2>
-            <p>{{ category.texte }}</p>
+            <img class="category-img" src="{{ asset('files/'~ category.image ) }}" alt="{{ category.titre }}">
+            <a class="show" href="{{ path('show_category', {'id':category.id}) }}">Voir cette catégorie</a><h2><a href="{{ path('show_category', {'id':category.id}) }}"><span class="nameCategory">{{ category.titre }}</span></a></h2>
+            {% if 'ROLE_ADMIN' in app.user.roles %}
+                <a class="update" href="{{ path('admin_update_category',{'id':category.id}) }}">Modifier cette catégorie</a>
+                <a class="delete" href="{{ path('admin_delete_category',{'id':category.id}) }}">Supprimer cette catégorie</a>
+            {% else %}
+                <p>{{ category.texte }}</p>
+            {% endif %}
+
+
+
+
         </div>
         {% endfor %}
     </section>

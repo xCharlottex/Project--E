@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Mocktails;
 use App\Form\MocktailsType;
+use App\Repository\CategoryRepository;
 use App\Repository\MocktailsRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,34 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminMocktailController extends AbstractController {
 
     /**
-     * @Route("/admin/mocktail/{id}", name="admin_show_mocktail")
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/admin/mocktail/insert/{id}", name="admin_insert_mocktail")
      */
-    public function showMocktail($id, MocktailsRepository $mocktailsRepository){
-        $mocktail = $mocktailsRepository->find($id);
-
-        return $this->render('admin/mocktail.html.twig', [
-            'mocktail' => $mocktail
-            ]);
-    }
-
-    /**
-     * @Route("/admin/mocktails", name="admin_mocktails")
-     */
-    public function Mocktails(MocktailsRepository $mocktailsRepository){
-        $mocktails = $mocktailsRepository->findAll();
-
-    return $this->render('admin/mocktails.html.twig', [
-        'mocktails' => $mocktails
-    ]);
-    }
-
-
-    /**
-     * @Route("/admin/mocktail/insert", name="admin_insert_mocktail")
-     */
-    public function insertMocktail(EntityManagerInterface $entityManager, Request $request){
+    public function insertMocktail(EntityManagerInterface $entityManager, Request $request, $id, CategoryRepository $categoryRepository){
         // creer une instance de la classe cocktail
         // creer un nouveau cocktail (table cocktail de ma bdd)
+
+        $category = $categoryRepository->find($id);
 
         $mocktail = new Mocktails();
 
@@ -48,16 +30,20 @@ class AdminMocktailController extends AbstractController {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
+            $mocktail->setCategory($category);
             $entityManager->persist($mocktail);
             $entityManager->flush();
+            $this->addFlash('success', 'Le mocktail est créé');
         }
 
-        return $this->render('admin/insert_mocktail.html.twig', [
-            'form' => $form->createView()
+        return $this->render('admin/insert_update_drink.html.twig', [
+            'form' => $form->createView(),
+            'isCocktail' => false
         ]);
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/admin/mocktail/update/{id}", name="admin_update_mocktail")
      */
     public function updateMocktail($id, MocktailsRepository $mocktailsRepository, EntityManagerInterface $entityManager, Request $request)
@@ -75,22 +61,25 @@ class AdminMocktailController extends AbstractController {
         } else {
             $this->addFlash('error', 'Le mocktail n\'est pas modifié');
         }
-        return $this->render('admin/update_mocktail.html.twig', [
-            'form' => $form->createView()
+        return $this->render('admin/insert_update_drink.html.twig', [
+            'form' => $form->createView(),
+            'isCocktail' => false
         ]);
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route ("/admin/mocktail/delete/{id}", name="admin_delete_mocktail")
      */
     public function deleteMocktail($id, MocktailsRepository $mocktailsRepository, EntityManagerInterface $entityManager){
         $mocktail = $mocktailsRepository->find($id);
+        $categoryId = $mocktail->getCategory()->getId();
 
         $entityManager->remove($mocktail);
         $entityManager->flush();
 
-        // admin_mocktails
-        return $this->redirectToRoute('admin_mocktails');
+        $this->addFlash("success", "Le Mocktail a été supprimé");
+        return $this->redirectToRoute('show_category', ['id' => $categoryId]);
     }
 
 }

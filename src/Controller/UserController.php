@@ -48,6 +48,7 @@ class UserController extends AbstractController {
             $entityManager->flush();
 
             $this->addFlash('sucess', 'c\'est ok');
+            $this->redirectToRoute('app_login');
         }
         return $this->render('front/create_user.html.twig', [
             'form' => $form->createView()

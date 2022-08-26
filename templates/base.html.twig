@@ -33,6 +33,9 @@
             {% endif %}
     </nav>
 </header>
+{% for message in app.flashes('success') %}
+    <p class="message-success">{{ message }}</p>
+{% endfor %}
 {% block main %}
 
     <div class="hello">

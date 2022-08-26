@@ -31,7 +31,7 @@
     height:50vh;
     overflow: hidden;
     transition: all .5s linear;
-    a .show, .update, .delete, .insert {
+    p{
       color:transparent;
       font-size:0.9rem;
       font-weight: lighter;
@@ -63,7 +63,7 @@
       img{
         transform: scale(1.5);
       }
-      a{
+      p{
         color:white;
       }
       h2{

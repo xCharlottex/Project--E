@@ -18,14 +18,14 @@ class MocktailsType extends AbstractType
             ->add('preparation')
             ->add('ingredients')
             ->add('titre')
-            ->add('submit', SubmitType::class)
-            ->add('category', EntityType::class, [
-                'class' => Category::class,
-                'choice_label' => function ($category) {
-                    return $category->getTitre();
-                },
-                'placeholder' => 'Choisissez votre catégorie',
-            ]);
+            ->add('submit', SubmitType::class);
+            //->add('category', EntityType::class, [
+            //    'class' => Category::class,
+            //    'choice_label' => function ($category) {
+            //        return $category->getTitre();
+            //    },
+            //    'placeholder' => 'Choisissez votre catégorie',
+            //]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -1,17 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <section class="category {{ category|replace({' ': '', '&': ''}) }}">
+    <section class="category {{ category.titre|replace({' ': '', '&': ''}) }}">
+        {% if 'ROLE_ADMIN' in app.user.roles %}
+            {#  {% set drinkType = isCocktail ? 'cocktail' : 'mocktail' %}
+            <a href="{{ path('admin_insert_'.drinkType, {'id':category.id}) }}">Insérer</a> #}
+             {% if isCocktail %}
+                <a href="{{ path('admin_insert_cocktail',{'id':category.id}) }}">Insérer</a>
+             {% else %}
+                <a href="{{ path('admin_insert_mocktail',{'id':category.id}) }}">Insérer</a>
+             {% endif %}
+        {% endif %}
         {% for drink in drinks %}
         <article class="drinks {{ drink.titre|replace({' ': '', '&': ''}) }} {% if loop.index % 2 == 0  %} pair {% endif %}">
            <div class="wrapperText">
                <h2 class="drinkTitre">{{ drink.titre}}</h2>
+               {% if 'ROLE_ADMIN' in app.user.roles %}
+                   {% if isCocktail %}
+                       <a href="{{ path('admin_update_cocktail',{'id':drink.id}) }}">Modifier</a>
+                   {% else %}
+                       <a href="{{ path('admin_update_mocktail',{'id':drink.id}) }}">Modifier</a>
+                   {% endif %}
+               {% endif %}
                <p class="i">Ingredients :</p>
                <p class="ingredients">{{ drink.ingredients }}</p>
                <p class="p">Préparation :</p>
                <p class="preparation">{{ drink.preparation }}</p>
+               {% if 'ROLE_ADMIN' in app.user.roles %}
+                   {% if isCocktail %}
+                       <a href="{{ path('admin_delete_cocktail',{'id':drink.id}) }}">Supprimer</a>
+                   {% else %}
+                       <a href="{{ path('admin_delete_mocktail',{'id':drink.id}) }}">Supprimer</a>
+                   {% endif %}
+               {% endif %}
            </div>
         </article>
+
         {% endfor %}
     </section>
 {% endblock %}

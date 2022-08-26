@@ -16,7 +16,6 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('image')
             ->add('texte')
             ->add('image', FileType::class, [
                 'mapped'=> false
