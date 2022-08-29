@@ -307,12 +307,19 @@ main {
   font-weight: lighter;
 }
 
+.insert {
+  color: white;
+  margin-left: 20px;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  width: 100%;
+}
+
 .nameCategory {
   font-size: 10px;
 }
 
 .Vodka {
-  background: url("../../uploads/images/cocktail_vodka.jpg") no-repeat center top fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -341,7 +348,6 @@ main {
 }
 
 .Liqueurdecafe {
-  background: url("../../uploads/images/cocktail.cafe.jpg") no-repeat center top fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -360,7 +366,6 @@ main {
 }
 
 .Tequila {
-  background: url("../../uploads/images/cocktail_tequila.jpg") no-repeat center top fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -379,7 +384,6 @@ main {
 }
 
 .Banane {
-  background: url("../../uploads/images/mock.banane.jpg") no-repeat center top fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -408,7 +412,6 @@ main {
 }
 
 .Citron {
-  background: url("../../uploads/images/mocktail_citron.jpg") no-repeat center top fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -437,7 +440,6 @@ main {
 }
 
 .Fraise {
-  background: url("../../uploads/images/mock.fraise.jpg") no-repeat center top fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -606,7 +608,7 @@ main {
   overflow: hidden;
   transition: all 0.5s linear;
 }
-.categoriesAdmin .categoryAdmin-wrapper a .show, .categoriesAdmin .categoryAdmin-wrapper .update, .categoriesAdmin .categoryAdmin-wrapper .delete, .categoriesAdmin .categoryAdmin-wrapper .insert {
+.categoriesAdmin .categoryAdmin-wrapper p {
   color: transparent;
   font-size: 0.9rem;
   font-weight: lighter;
@@ -635,7 +637,7 @@ main {
 .categoriesAdmin .categoryAdmin-wrapper:hover img {
   transform: scale(1.5);
 }
-.categoriesAdmin .categoryAdmin-wrapper:hover a {
+.categoriesAdmin .categoryAdmin-wrapper:hover p {
   color: white;
 }
 .categoriesAdmin .categoryAdmin-wrapper:hover h2 {

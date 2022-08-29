@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/base.html.twig' %}
 
 {% block main %}
 
-    {% if 'ROLE_ADMIN' in app.user.roles %}
-        <a class="insert" href="{{ path('admin_insert_category') }}">Ajouter une catégorie</a>
-    {% endif %}
     <section class="categories">
+        {% if 'ROLE_ADMIN' in app.user.roles %}
+            <a class="insert" href="{{ path('admin_insert_category') }}">Ajouter une catégorie</a>
+        {% endif %}
         <h1 class="categoryTitle">Catégories</h1>
 
         {% for category in categories %}
