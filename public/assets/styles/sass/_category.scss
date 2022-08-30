@@ -7,11 +7,29 @@
 //    min-height: 100vh;
     // mettre & devant toutes les classes
 //  }
-
+.category{
+  background-color: black;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  .drinks {
+    padding-top: 30px;
+    display: flex;
+    width:100%;
+    margin: 0 60px 60px;
+    // position a droite ??
+    .wrapperText{
+      width:40%;
+    }
+    &.pair{
+      .wrapperText{
+        margin:auto;
+      }
+    }
+  }
+}
 
   .Vodka {
-    background-size: cover;
-    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     gap:20px;
@@ -45,8 +63,6 @@
   }
 
   .Liqueurdecafe {
-    background-size: cover;
-    min-height: 100vh;
     display: flex;
     align-items: flex-start;
     //flex-wrap: wrap;
@@ -70,9 +86,7 @@
   }
 
   .Tequila {
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
+    //display: flex;
     align-items: flex-start;
     //flex-wrap: wrap;
     //gap:8rem;
@@ -95,8 +109,6 @@
   }
 
   .Banane {
-    background-size: cover;
-    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     gap:20px;
@@ -105,7 +117,7 @@
       width:100%;
       display: flex;
       margin: 60px;
-      p {
+      p, a {
         color: black;
       }
 
@@ -129,8 +141,6 @@
   }
 
   .Citron {
-    background-size: cover;
-    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     gap:20px;
@@ -139,7 +149,7 @@
       width:100%;
       display: flex;
       margin: 60px;
-      p {
+      p, a {
         color: black;
       }
 
@@ -163,8 +173,6 @@
   }
 
   .Fraise {
-    background-size: cover;
-    min-height: 100vh;
     display: flex;
     //flex-wrap: wrap;
     //gap: 20px;
@@ -218,5 +226,16 @@
       border-top:solid 1px white;
     }
   }
+
+  .drinksWhiteRussian {
+    width: 50%;
+  }
+
+.delete, .update {
+  color: black;
+  display: flex;
+
+
+}
 
 

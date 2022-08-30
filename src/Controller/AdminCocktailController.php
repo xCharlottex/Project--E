@@ -36,6 +36,7 @@ class AdminCocktailController extends AbstractController {
             $entityManager->persist($cocktail);
             $entityManager->flush();
             $this->addFlash('success', 'Le cocktail est créé');
+            return $this->redirectToRoute('show_category', ['id' => $cocktail->getCategory()->getId()]);
         }
         return $this->render('admin/insert_update_drink.html.twig', [
             'form' => $form->createView(),
@@ -71,6 +72,7 @@ class AdminCocktailController extends AbstractController {
             $entityManager->flush();
 
             $this->addFlash('success', 'Le cocktail est modifié');
+            return $this->redirectToRoute('show_category', ['id' => $cocktail->getCategory()->getId()]);
         } else {
             $this->addFlash('error', 'Le cocktail n\'est pas modifié');
         }

@@ -32,14 +32,16 @@ class PageCategoryController extends AbstractController {
      */
     public function showCategory($id, CategoryRepository  $categoryRepository, CocktailsRepository  $cocktailRepository, MocktailsRepository $mocktailsRepository){
         $category = $categoryRepository->find($id);
-        $drinks = $cocktailRepository->findBy(['category' => $category]);
-        $isCocktail = (sizeof($drinks) > 0);
-        $drinks = $drinks + $mocktailsRepository->findBy(['category' => $category]);
+        if($category->isIsCocktailCategory()){
+            $drinks = $cocktailRepository->findBy(['category' => $category]);
+        } else {
+            $drinks = $mocktailsRepository->findBy(['category' => $category]);
+        }
+
+
         return $this->render('front/category.html.twig', [
             'drinks' => $drinks,
-            'category' => $category,
-            'isCocktail' => $isCocktail
-
+            'category' => $category
         ]);
     }
 
@@ -53,32 +55,24 @@ class PageCategoryController extends AbstractController {
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid() && $form->get('image')->getData()) {
+        if ($form->isSubmitted() && $form->isValid() && $form->get('image')->getData() && $form->get('backgroundImage')->getData() ) {
 
             // je récupère l'image dans le formulaire (l'image est en mapped false donc c'est à moi
             // de gérer l'upload
             $image = $form->get('image')->getData();
+            $backgroundImage = $form->get('backgroundImage')->getData();
 
-            // je récupère le nom du fichier original
-            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-
-            // j'utilise une instance de la classe Slugger et sa méthode slug pour
-            // supprimer les caractères spéciaux, espaces etc du nom du fichier
-            $safeFilename = $slugger->slug($originalFilename);
-            // je rajoute au nom de l'image, un identifiant unique (au cas ou
-            // l'image soit uploadée plusieurs fois)
-            $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
-
-            // je déplace l'image dans le dossier public et je la renomme avec le nouveau nom créé
-            $image->move(
-                $this->getParameter('files'),
-                $newFilename
-            );
+            $newFilename = $this->handleImage($slugger, $image, "miniature");
+            $newFilenameBackground = $this->handleImage($slugger, $backgroundImage, "background");
 
             $category->setImage($newFilename);
+            $category->setBackgroundImage($newFilenameBackground);
+            $entityManager->persist($category);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('categories');
         }
-        $entityManager->persist($category);
-        $entityManager->flush();
+
         return $this->render('admin/insert_update_category.html.twig', [
             'form' => $form->createView()
         ]);
@@ -100,30 +94,22 @@ class PageCategoryController extends AbstractController {
             // je récupère l'image dans le formulaire (l'image est en mapped false donc c'est à moi
             // de gérer l'upload
             $image = $form->get('image')->getData();
+            $backgroundImage = $form->get('backgroundImage')->getData();
 
             if($image) {
-                // je récupère le nom du fichier original
-                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-
-                // j'utilise une instance de la classe Slugger et sa méthode slug pour
-                // supprimer les caractères spéciaux, espaces etc du nom du fichier
-                $safeFilename = $slugger->slug($originalFilename);
-                // je rajoute au nom de l'image, un identifiant unique (au cas ou
-                // l'image soit uploadée plusieurs fois)
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
-
-                // je déplace l'image dans le dossier public et je la renomme avec le nouveau nom créé
-                $image->move(
-                    $this->getParameter('files'),
-                    $newFilename
-                );
-
+                $newFilename = $this->handleImage($slugger, $image, "miniature");
                 $category->setImage($newFilename);
+            }
+
+            if($backgroundImage) {
+                $newFilename = $this->handleImage($slugger, $backgroundImage, "background");
+                $category->setBackgroundImage($newFilename);
             }
 
             $entityManager->persist($category);
             $entityManager->flush();
             $this->addFlash('success', 'La catégorie est modifié');
+            return $this->redirectToRoute('categories');
         } else {
             $this->addFlash('error', 'La catégorie n\'est pas modifié');
         }
@@ -145,6 +131,27 @@ class PageCategoryController extends AbstractController {
 
         $this->addFlash("success", "La catégorie a bien été supprimée");
         return $this->redirectToRoute('categories');
+    }
+
+
+    private function handleImage($slugger, $image, $prefix = ""): string {
+        // je récupère le nom du fichier original
+        $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+
+        // j'utilise une instance de la classe Slugger et sa méthode slug pour
+        // supprimer les caractères spéciaux, espaces etc du nom du fichier
+        $safeFilename = $slugger->slug($originalFilename);
+        // je rajoute au nom de l'image, un identifiant unique (au cas ou
+        // l'image soit uploadée plusieurs fois)
+        $newFilename = $prefix . "-" . $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+        // je déplace l'image dans le dossier public et je la renomme avec le nouveau nom créé
+        $image->move(
+            $this->getParameter('files'),
+            $newFilename
+        );
+
+        return $newFilename;
     }
 
 }

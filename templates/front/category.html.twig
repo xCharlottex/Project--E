@@ -1,14 +1,14 @@
 {% extends 'home/base.html.twig' %}
 
 {% block main %}
-    <section class="category {{ category.titre|replace({' ': '', '&': ''}) }}">
+    <section class="category {{ category.titre|replace({' ': '', '&': ''}) }}" style="background-image: url('{{ asset('files/'~ category.backgroundImage ) }}')">
         {% if 'ROLE_ADMIN' in app.user.roles %}
             {#  {% set drinkType = isCocktail ? 'cocktail' : 'mocktail' %}
             <a href="{{ path('admin_insert_'.drinkType, {'id':category.id}) }}">Insérer</a> #}
-             {% if isCocktail %}
-                <a href="{{ path('admin_insert_cocktail',{'id':category.id}) }}">Insérer</a>
+             {% if category.isCocktailCategory %}
+                <a class="inserer" href="{{ path('admin_insert_cocktail',{'id':category.id}) }}">Insérer</a>
              {% else %}
-                <a href="{{ path('admin_insert_mocktail',{'id':category.id}) }}">Insérer</a>
+                <a class="inserer" href="{{ path('admin_insert_mocktail',{'id':category.id}) }}">Insérer</a>
              {% endif %}
         {% endif %}
         {% for drink in drinks %}
@@ -16,10 +16,10 @@
            <div class="wrapperText">
                <h2 class="drinkTitre">{{ drink.titre}}</h2>
                {% if 'ROLE_ADMIN' in app.user.roles %}
-                   {% if isCocktail %}
-                       <a href="{{ path('admin_update_cocktail',{'id':drink.id}) }}">Modifier</a>
+                   {% if category.isCocktailCategory %}
+                       <a class="modifier" href="{{ path('admin_update_cocktail',{'id':drink.id}) }}">Modifier</a>
                    {% else %}
-                       <a href="{{ path('admin_update_mocktail',{'id':drink.id}) }}">Modifier</a>
+                       <a class="modifier" href="{{ path('admin_update_mocktail',{'id':drink.id}) }}">Modifier</a>
                    {% endif %}
                {% endif %}
                <p class="i">Ingredients :</p>
@@ -27,10 +27,10 @@
                <p class="p">Préparation :</p>
                <p class="preparation">{{ drink.preparation }}</p>
                {% if 'ROLE_ADMIN' in app.user.roles %}
-                   {% if isCocktail %}
-                       <a href="{{ path('admin_delete_cocktail',{'id':drink.id}) }}">Supprimer</a>
+                   {% if category.isCocktailCategory %}
+                       <a class="supprimer" href="{{ path('admin_delete_cocktail',{'id':drink.id}) }}">Supprimer</a>
                    {% else %}
-                       <a href="{{ path('admin_delete_mocktail',{'id':drink.id}) }}">Supprimer</a>
+                       <a class="supprimer" href="{{ path('admin_delete_mocktail',{'id':drink.id}) }}">Supprimer</a>
                    {% endif %}
                {% endif %}
            </div>

@@ -63,6 +63,16 @@ class Category
      */
     private $mocktails;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isCocktailCategory;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $backgroundImage;
+
     public function __construct()
     {
         $this->cocktails = new ArrayCollection();
@@ -156,6 +166,30 @@ class Category
                 $mocktail->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isIsCocktailCategory(): ?bool
+    {
+        return $this->isCocktailCategory;
+    }
+
+    public function setIsCocktailCategory(bool $isCocktailCategory): self
+    {
+        $this->isCocktailCategory = $isCocktailCategory;
+
+        return $this;
+    }
+
+    public function getBackgroundImage(): ?string
+    {
+        return $this->backgroundImage;
+    }
+
+    public function setBackgroundImage(string $backgroundImage): self
+    {
+        $this->backgroundImage = $backgroundImage;
 
         return $this;
     }

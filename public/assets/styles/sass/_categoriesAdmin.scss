@@ -54,6 +54,7 @@
       bottom:0;
       left:0;
       z-index:200;
+
     }
     &:hover{
 
@@ -99,3 +100,17 @@
     }
   }
 }
+
+  .inserer, .modifier, .supprimer {
+    color: white;
+
+    font-size:1.2rem;
+    font-weight: lighter;
+    width:100%;
+  }
+
+ .inserer {
+   color: pink;
+   position: absolute;
+ }
+

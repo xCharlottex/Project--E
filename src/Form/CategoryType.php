@@ -18,9 +18,15 @@ class CategoryType extends AbstractType
             ->add('titre')
             ->add('texte')
             ->add('image', FileType::class, [
-                'mapped'=> false
+                'mapped'=> false,
+                'required' => false
+            ])
+            ->add('backgroundImage', FileType::class, [
+                'mapped'=> false,
+                'required' => false
             ])
             ->add('submit', SubmitType::class)
+            ->add('isCocktailCategory')
         ;
     }
 

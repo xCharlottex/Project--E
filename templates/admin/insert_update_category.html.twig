@@ -1,20 +1,33 @@
 {% extends'home/base.html.twig' %}
 
 {% block main %}
-    <h1>Insertion ou modification de Catégorie</h1>
+    <div class="insertupdate-category">
+    <h1 class="titre">Insertion ou modification de Catégorie</h1>
 
     {{ form_start(form) }}
 
-    {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-cocktail-titre-label'}}) }}
-    {{ form_widget(form.titre, {'attr': {'class': 'form-cocktail-titre-widget'}}) }}
+    {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-category-titre-label'}}) }}
+    {{ form_widget(form.titre, {'attr': {'class': 'form-category-titre-widget'}}) }}
     {{ form_errors(form.titre) }}
 
-    {{ form_label(form.texte, 'Texte', {'label_attr': {'class': 'form-category-titre-label'}}) }}
-    {{ form_widget(form.texte, {'attr': {'class': 'form-category-titre-widget'}}) }}
+    {{ form_label(form.texte, 'Texte', {'label_attr': {'class': 'form-category-texte-label'}}) }}
+    {{ form_widget(form.texte, {'attr': {'class': 'form-category-texte-widget'}}) }}
     {{ form_errors(form.texte) }}
+    <div class="inline">
+        {{ form_label(form.isCocktailCategory, 'Cocktail', {'label_attr': {'class': 'form-category-isCocktail-label'}}) }}
+        {{ form_widget(form.isCocktailCategory, {'attr': {'class': 'form-category-isCocktail-widget'}}) }}
+        {{ form_errors(form.isCocktailCategory) }}
+    </div>
+    {{ form_label(form.image, 'Image miniature', {'label_attr': {'class': 'form-category-image-label'}}) }}
+    {{ form_widget(form.image, {'attr': {'class': 'form-category-image-widget'}}) }}
+    {{ form_errors(form.image) }}
 
-    {{ form_widget(form.submit) }}
+    {{ form_label(form.backgroundImage, 'Image de fond', {'label_attr': {'class': 'form-category-backgroundImage-label'}}) }}
+    {{ form_widget(form.backgroundImage, {'attr': {'class': 'form-category-backgroundImage-widget'}}) }}
+    {{ form_errors(form.backgroundImage) }}
 
+    {{ form_widget(form.submit,{'label': 'Envoyer'}) }}
     {{ form_end(form) }}
 
+    </div>
 {% endblock %}

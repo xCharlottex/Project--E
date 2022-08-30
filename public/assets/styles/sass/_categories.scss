@@ -31,7 +31,7 @@
     height:50vh;
     overflow: hidden;
     transition: all .5s linear;
-    p{
+    p, .update, .delete {
       color:transparent;
       font-size:0.9rem;
       font-weight: lighter;
@@ -42,7 +42,9 @@
       transition: color 1s ease;
       transition-delay: 0s;
       padding: 10px;
-
+    }
+    .update{
+      bottom: 15%;
     }
     &::after{
       content:'';
@@ -63,9 +65,10 @@
       img{
         transform: scale(1.5);
       }
-      p{
+      p, .update, .delete{
         color:white;
       }
+
       h2{
         bottom:40%;
         transition-delay: 0s;
@@ -113,4 +116,6 @@
 .nameCategory {
   font-size: 10px;
 }
+
+
 

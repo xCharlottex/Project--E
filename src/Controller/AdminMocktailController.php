@@ -34,6 +34,7 @@ class AdminMocktailController extends AbstractController {
             $entityManager->persist($mocktail);
             $entityManager->flush();
             $this->addFlash('success', 'Le mocktail est créé');
+            return $this->redirectToRoute('show_category', ['id' => $mocktail->getCategory()->getId()]);
         }
 
         return $this->render('admin/insert_update_drink.html.twig', [
@@ -58,6 +59,7 @@ class AdminMocktailController extends AbstractController {
             $entityManager->flush();
 
             $this->addFlash('success', 'Le mocktail est modifié');
+            return $this->redirectToRoute('show_category', ['id' => $mocktail->getCategory()->getId()]);
         } else {
             $this->addFlash('error', 'Le mocktail n\'est pas modifié');
         }
