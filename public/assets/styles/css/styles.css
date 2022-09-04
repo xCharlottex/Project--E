@@ -1,18 +1,806 @@
-/* Error: expected selector.
- *    ,
- * 11 | * @media screen and (max-width: 800px){
- *    |   ^
- *    '
- *   public/assets/styles/sass/_body.scss 11:3  @import
- *   public/assets/styles/sass/styles.scss 4:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: expected selector.\a    \2577 \a 11 \2502  * @media screen and (max-width: 800px){\a    \2502    ^\a    \2575 \a   public/assets/styles/sass/_body.scss 11:3  @import\a   public/assets/styles/sass/styles.scss 4:9  root stylesheet";
+.category-img {
+  height: 100px;
+  width: 100px;
 }
+
+.image_logo {
+  height: 40px;
+  width: 40px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+  align-items: center;
+}
+.nav a, .nav span {
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+}
+.nav span {
+  text-transform: capitalize;
+}
+
+.footer {
+  background-color: black;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.jsf {
+  color: white;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+@media screen and (max-width: 800px) {
+  .burgermobile {
+    display: block !important;
+  }
+}
+.hello {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../uploads/images/accueil.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.about {
+  height: 300vh;
+  display: flex;
+}
+
+.about-accueil {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  margin: 0 !important;
+}
+
+.about-pages {
+  width: 50%;
+}
+
+.about-pages div {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.about-pages div > p {
+  width: 80%;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.about-pages div:nth-child(1) {
+  background-color: #F7AEF8;
+}
+
+.about-pages div:nth-child(2) {
+  background-color: #B388EB;
+}
+
+.about-pages div:nth-child(3) {
+  background-color: #8093F1;
+}
+
+.about_image {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../assets/uploads/images/photo cocktails nuit .jpg");
+  background-size: cover;
+}
+
+.about_image p {
+  color: white;
+  text-align: center;
+  width: 50%;
+  border-radius: 10px;
+  font-weight: lighter;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5508578431) 0%, rgba(0, 0, 0, 0.8477766106) 100%);
+}
+
+main {
+  height: 100vh;
+}
+
+.formulaire_inscription {
+  height: 100vh;
+  background-image: url("../../uploads/images/expresso.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  background-position: center;
+}
+.formulaire_inscription .formWrapper {
+  background-color: rgba(20, 20, 20, 0.8);
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.formulaire_inscription .formWrapper .inscriptionTitle {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.formulaire_inscription .formWrapper .inscriptionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+.formulaire_inscription .formWrapper form {
+  padding: 70px;
+  text-decoration: none;
+}
+.formulaire_inscription .formWrapper form .inputWrapper {
+  margin: 40px 0;
+  position: relative;
+}
+.formulaire_inscription .formWrapper form .inputWrapper label {
+  position: absolute;
+  left: 10px;
+  font-weight: lighter;
+  font-size: 24px;
+  top: 10px;
+  transition: top 0.5s linear;
+}
+.formulaire_inscription .formWrapper form input {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px white;
+  width: 100%;
+  display: block;
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+}
+.formulaire_inscription .formWrapper form input:not(:placeholder-shown) + label {
+  top: -30px;
+}
+.formulaire_inscription .formWrapper form input:focus + label {
+  top: -30px;
+}
+.formulaire_inscription .formWrapper form .form-password-titre-label, .formulaire_inscription .formWrapper form .form-email-titre-label, .formulaire_inscription .formWrapper form .form-lastname-titre-label, .formulaire_inscription .formWrapper form .form-name-titre-label {
+  color: white;
+}
+.formulaire_inscription .formWrapper form button {
+  border: white solid 1px;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+.formulaire_inscription .formWrapper form button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(20, 20, 20);
+}
+
+.categoryTitle {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.categoryTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+
+.categories {
+  padding: 40px 0;
+  background-color: #141414;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+.categories .category-wrapper {
+  position: relative;
+  width: 30%;
+  background-color: white;
+  height: 50vh;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+.categories .category-wrapper p, .categories .category-wrapper .update, .categories .category-wrapper .delete {
+  color: transparent;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 400;
+  transition: color 1s ease;
+  transition-delay: 0s;
+  padding: 10px;
+}
+.categories .category-wrapper .update {
+  bottom: 15%;
+}
+.categories .category-wrapper::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%, rgba(0, 0, 0, 0.9) 100%);
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+}
+.categories .category-wrapper:hover::after {
+  height: 80%;
+}
+.categories .category-wrapper:hover img {
+  transform: scale(1.5);
+}
+.categories .category-wrapper:hover p, .categories .category-wrapper:hover .update, .categories .category-wrapper:hover .delete {
+  color: white;
+}
+.categories .category-wrapper:hover h2 {
+  bottom: 40%;
+  transition-delay: 0s;
+}
+.categories .category-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s linear;
+}
+.categories .category-wrapper h2 {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  text-align: center;
+  transition: all 0.5s ease;
+  transition-delay: 0.7s;
+}
+.categories .category-wrapper h2 a {
+  text-decoration: none;
+}
+.categories .category-wrapper h2 a span {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: lighter;
+}
+
+.insert {
+  color: white;
+  margin-left: 20px;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  width: 100%;
+}
+
+.nameCategory {
+  font-size: 10px;
+}
+
+.category {
+  background-color: black;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.category .drinks {
+  padding-top: 30px;
+  display: flex;
+  width: 100%;
+  margin: 0 60px 60px;
+}
+.category .drinks .wrapperText {
+  width: 40%;
+}
+.category .drinks.pair .wrapperText {
+  margin: auto;
+}
+
+.Vodka {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.Vodka .drinks {
+  width: 100%;
+  display: flex;
+  margin: 60px;
+}
+.Vodka .drinks p {
+  color: white;
+}
+.Vodka .drinks.pair .wrapperText {
+  margin: auto;
+}
+.Vodka .drinks .wrapperText {
+  width: 40%;
+}
+.Vodka .drinks p, .Vodka .drinkTitre {
+  color: white;
+}
+.Vodka .ingredients::after {
+  border-top: solid 1px white;
+}
+
+.Liqueurdecafe {
+  display: flex;
+  align-items: flex-start;
+}
+.Liqueurdecafe .drinks {
+  width: 100%;
+  display: flex;
+  margin: 60px;
+}
+.Liqueurdecafe .drinks.pair .wrapperText {
+  margin: auto;
+}
+.Liqueurdecafe .drinks .wrapperText {
+  width: 40%;
+}
+
+.Tequila {
+  align-items: flex-start;
+}
+.Tequila .drinks {
+  width: 100%;
+  display: flex;
+  margin: 60px;
+}
+.Tequila .drinks.pair .wrapperText {
+  margin: auto;
+}
+.Tequila .drinks .wrapperText {
+  width: 40%;
+}
+
+.Banane {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.Banane .drinks {
+  width: 100%;
+  display: flex;
+  margin: 60px;
+}
+.Banane .drinks p, .Banane .drinks a {
+  color: black;
+}
+.Banane .drinks.pair .wrapperText {
+  margin: auto;
+}
+.Banane .drinks .wrapperText {
+  width: 40%;
+}
+.Banane .drinks p, .Banane .drinkTitre {
+  color: black;
+}
+.Banane .ingredients::after {
+  border-top: solid 1px black;
+}
+
+.Citron {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.Citron .drinks {
+  width: 100%;
+  display: flex;
+  margin: 60px;
+}
+.Citron .drinks p, .Citron .drinks a {
+  color: black;
+}
+.Citron .drinks.pair .wrapperText {
+  margin: auto;
+}
+.Citron .drinks .wrapperText {
+  width: 40%;
+}
+.Citron .drinks p, .Citron .drinkTitre {
+  color: black;
+}
+.Citron .ingredients::after {
+  border-top: solid 1px black;
+}
+
+.Fraise {
+  display: flex;
+}
+.Fraise .drinks {
+  width: 100%;
+  display: flex;
+  margin: 60px;
+}
+.Fraise .drinks.pair .wrapperText {
+  margin: auto;
+}
+.Fraise .drinks .wrapperText {
+  width: 50%;
+}
+
+.drinks p {
+  color: white;
+}
+
+.i, .p, .drinkTitre {
+  font-weight: bold;
+  color: white;
+  margin: 15px 0;
+}
+
+.p {
+  margin-top: 30px;
+}
+
+.drinkTitre {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.ingredients {
+  position: relative;
+}
+.ingredients::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  width: 30%;
+  border-top: solid 1px white;
+}
+
+.drinksWhiteRussian {
+  width: 50%;
+}
+
+.delete, .update {
+  color: black;
+  display: flex;
+}
+
+.formulaire_connexion {
+  height: 100vh;
+  background-image: url("../../uploads/images/expresso.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  background-position: center;
+}
+.formulaire_connexion .formWrapper {
+  background-color: rgba(20, 20, 20, 0.8);
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.formulaire_connexion .formWrapper .connexionTitle {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.formulaire_connexion .formWrapper .connexionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+.formulaire_connexion .formWrapper form {
+  padding: 70px;
+  text-decoration: none;
+}
+.formulaire_connexion .formWrapper form .inputWrapper {
+  margin: 40px 0;
+  position: relative;
+}
+.formulaire_connexion .formWrapper form .inputWrapper label {
+  position: absolute;
+  left: 10px;
+  font-weight: lighter;
+  font-size: 24px;
+  top: 10px;
+  transition: top 0.5s linear;
+}
+.formulaire_connexion .formWrapper form input {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px white;
+  width: 100%;
+  display: block;
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+}
+.formulaire_connexion .formWrapper form input:not(:placeholder-shown) + label {
+  top: -30px;
+}
+.formulaire_connexion .formWrapper form input:focus + label {
+  top: -30px;
+}
+.formulaire_connexion .formWrapper form .email, .formulaire_connexion .formWrapper form .password {
+  color: white;
+}
+.formulaire_connexion .formWrapper form button {
+  border: white solid 1px;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+.formulaire_connexion .formWrapper form button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(20, 20, 20);
+}
+
+.categoryAdmintitle {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.categoryAdmintitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+
+.categoriesAdmin {
+  padding: 40px 0;
+  background-color: #141414;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+.categoriesAdmin .categoryAdmin-wrapper {
+  position: relative;
+  width: 30%;
+  background-color: white;
+  height: 50vh;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+.categoriesAdmin .categoryAdmin-wrapper p {
+  color: transparent;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 400;
+  transition: color 1s ease;
+  transition-delay: 0s;
+  padding: 10px;
+}
+.categoriesAdmin .categoryAdmin-wrapper::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%, rgba(0, 0, 0, 0.9) 100%);
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover::after {
+  height: 80%;
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover img {
+  transform: scale(1.5);
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover p {
+  color: white;
+}
+.categoriesAdmin .categoryAdmin-wrapper:hover h2 {
+  bottom: 40%;
+  transition-delay: 0s;
+}
+.categoriesAdmin .categoryAdmin-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s linear;
+}
+.categoriesAdmin .categoryAdmin-wrapper h2 {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  text-align: center;
+  transition: all 0.5s ease;
+  transition-delay: 0.7s;
+}
+.categoriesAdmin .categoryAdmin-wrapper h2 a {
+  text-decoration: none;
+}
+.categoriesAdmin .categoryAdmin-wrapper h2 a span {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: lighter;
+}
+
+.inserer, .modifier, .supprimer {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  width: 100%;
+}
+
+.inserer {
+  color: pink;
+  position: absolute;
+}
+
+.insertupdate-category {
+  background-color: #141414;
+  height: 100vh;
+}
+.insertupdate-category .titre {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.insertupdate-category .titre::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+.insertupdate-category form {
+  padding: 40px;
+  text-decoration: none;
+}
+.insertupdate-category form .inline {
+  display: flex;
+}
+.insertupdate-category form label {
+  font-weight: lighter;
+  font-size: 24px;
+  color: white;
+  display: block;
+}
+.insertupdate-category form input, .insertupdate-category form textarea {
+  width: 40%;
+  display: block;
+  color: black;
+  font-size: 15px;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+.insertupdate-category form input.form-category-isCocktail-widget, .insertupdate-category form textarea.form-category-isCocktail-widget {
+  width: 10%;
+}
+.insertupdate-category form input[type=file] {
+  color: white;
+}
+.insertupdate-category form textarea {
+  height: 6rem;
+}
+
+.insertupdate-drink {
+  background-color: #141414;
+  height: 100vh;
+}
+.insertupdate-drink .insertupdatedrink {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: lighter;
+  position: relative;
+  width: 100%;
+}
+.insertupdate-drink .insertupdatedrink::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10%;
+  border-top: 1px solid white;
+  transform: translateX(-50%);
+}
+.insertupdate-drink form {
+  padding: 40px;
+  text-decoration: none;
+}
+.insertupdate-drink form .inline {
+  display: flex;
+}
+.insertupdate-drink form label {
+  font-weight: lighter;
+  font-size: 24px;
+  color: white;
+  display: block;
+}
+.insertupdate-drink form input, .insertupdate-drink form textarea {
+  width: 40%;
+  display: block;
+  color: black;
+  font-size: 15px;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+.insertupdate-drink form textarea {
+  height: 10rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

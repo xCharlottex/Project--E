@@ -46,10 +46,12 @@ class UserController extends AbstractController {
             $entityManager->persist($user);
             // flush incription BDD physiquement
             $entityManager->flush();
-
+            // message de succès si la creation d'utilisateur à marché puis
+            // redirection vers la méthode choisis via son nom (page de connexion ici)
             $this->addFlash('sucess', 'c\'est ok');
             return $this->redirectToRoute('app_login');
         }
+        // sinon redirection vers le formulaire de creation d'utilisateur
         return $this->render('front/create_user.html.twig', [
             'form' => $form->createView()
         ]);

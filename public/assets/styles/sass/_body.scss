@@ -8,11 +8,8 @@
   font-family: 'Poppins', sans-serif;
 }
 
-* @media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .burgermobile {
     display: block !important;
-  }
-  .uk-navbar-container {
-    display: none;
   }
 }
