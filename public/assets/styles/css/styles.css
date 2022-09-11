@@ -30,33 +30,37 @@
   text-transform: capitalize;
 }
 
+menu {
+  visibility: hidden;
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (max-width: 600px) {
+  .nav a, .nav span {
+    color: dimgrey;
+    font-size: 12px;
+    display: inline;
+  }
+}
 .footer {
   background-color: black;
-  height: 30px;
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.jsf {
-  color: white;
 }
 
 * {
   font-family: "Poppins", sans-serif;
 }
 
-@media screen and (max-width: 800px) {
-  .burgermobile {
-    display: block !important;
-  }
-}
 .hello {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../uploads/images/accueil.jpg");
+  background-image: url("../../uploads/images/photo cocktails nuit .jpg");
   background-size: cover;
   color: white;
 }

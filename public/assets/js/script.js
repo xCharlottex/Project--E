@@ -1,7 +1,6 @@
-
 function splitScroll(){
     // creer un controleur & dire que le controleur de console est egal au nouveau controlleur de points magique de defilement
-    // = creer quelques chose aui s'appelle des scenes differentres, faire defiler et animer
+    // = creer quelque chose qui s'appelle des scenes differentes, faire defiler et animer
     const controller = new ScrollMagic.Controller();
 
     new ScrollMagic.Scene({
@@ -13,21 +12,14 @@ function splitScroll(){
         // crochet de declenchement
         triggerHook: 0
     })
+
         .setPin('.about-accueil')
-    // ajouter des indicateurs qui nous sont visuel puis le brancher a ce controlleur
-     //s   .addIndicators()
-    // ajouter au controleur puis enrengistrer
+        // ajouter des indicateurs qui nous sont visuel puis le brancher a ce controlleur
+        //.addIndicators()
+        // ajouter au controleur puis enrengistrer
         .addTo(controller);
 }
 
 splitScroll();
 
 
-function burgerMenu(){
-    const nav = document.querySelector('.nav');
-    const burger = document.querySelector('.burger');
-    burger.addEventListener('click',() => {
-        nav.classList.toggle('show-nav');
-    })
-}
-burgerMenu();
