@@ -1,4 +1,4 @@
-{% extends 'home/home.html.twig' %}
+{% extends 'home/base.html.twig' %}
 
 {% block main %}
     <section class="category {{ category.titre|replace({' ': '', '&': ''}) }}" style="background-image: url('{{ asset('files/'~ category.backgroundImage ) }}')">

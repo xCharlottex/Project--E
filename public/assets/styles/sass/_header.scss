@@ -27,19 +27,18 @@
     }
   }
 
-  menu {
-    visibility: hidden;
-    width: 32px;
-    height: 32px;
+
+  .nuit a, .nuit span {
+      color: #a12323;
   }
 
+
+
   @media screen and (max-width: 600px) {
-      .nav a, .nav span {
-        color: dimgrey;
-        font-size: 12px;
-        display: inline;
-      }
+    .nav a, .nav span {
+      color: white;
+      font-size: 12px;
+      display: inline;
     }
-
-
+  }
 

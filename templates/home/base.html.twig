@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenue sur le site d'Alberto</title>
-
-    {# TODO : il manque description, meta name, author !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #}
+    <meta name="description" content="Ce site décrit les recettes de cocktails et de mocktails d'Albert">
+    <meta name="author" content="Charlotte Coutinot">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,9 @@
             <a href="{{ path('create_user') }}">Inscription</a>
             <a href="{{ path('app_login') }}">Connexion</a>
         {% endif %}
+
+        <button class="nuit">clic</button>
+
     </nav>
 </header>
     {% for message in app.flashes('success') %}
@@ -89,7 +92,6 @@
 
 <footer class="footer">
 </footer>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </html>
